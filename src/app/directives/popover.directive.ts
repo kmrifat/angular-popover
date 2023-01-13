@@ -1,7 +1,7 @@
 import {
   Directive,
   ElementRef,
-  HostListener,
+  HostListener, Injector,
   Input,
   OnDestroy,
   OnInit,
@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {Overlay, OverlayRef} from "@angular/cdk/overlay";
-import {TemplatePortal} from "@angular/cdk/portal";
+import {ComponentPortal, PortalInjector, TemplatePortal} from "@angular/cdk/portal";
+// import {PopoverComponent} from "./popover/popover.component";
 
 @Directive({
   selector: '[popoverTrigger]'
@@ -24,7 +25,8 @@ export class PopoverDirective implements OnDestroy, OnInit {
 
   constructor(private elementRef: ElementRef,
               private overlay: Overlay,
-              private vcr: ViewContainerRef
+              private vcr: ViewContainerRef,
+              private injector: Injector
   ) {
   }
 
@@ -131,6 +133,8 @@ export class PopoverDirective implements OnDestroy, OnInit {
         this.popoverTrigger,
         this.vcr
       );
+
+      // const comP = new ComponentPortal(PopoverComponent)
 
       this.overlayRef.attach(periodSelectorPortal);
 
