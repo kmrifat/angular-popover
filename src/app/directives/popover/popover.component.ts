@@ -7,7 +7,8 @@ import {BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal} from
   styleUrls: ['./popover.component.scss']
 })
 export class PopoverComponent extends BasePortalOutlet {
-  @ViewChild(CdkPortalOutlet) portalOutlet: CdkPortalOutlet;
+  @ViewChild(CdkPortalOutlet)
+  portalOutlet!: CdkPortalOutlet;
 
   attachComponentPortal<T>(componentPortal: ComponentPortal<any>): ComponentRef<T> {
     return this.portalOutlet.attachComponentPortal(componentPortal);

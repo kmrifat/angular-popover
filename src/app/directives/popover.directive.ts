@@ -11,6 +11,7 @@ import {
 import {Subject, takeUntil} from "rxjs";
 import {Overlay, OverlayRef} from "@angular/cdk/overlay";
 import {ComponentPortal, PortalInjector, TemplatePortal} from "@angular/cdk/portal";
+import {PopoverComponent} from "./popover/popover.component";
 // import {PopoverComponent} from "./popover/popover.component";
 
 @Directive({
@@ -46,8 +47,8 @@ export class PopoverDirective implements OnDestroy, OnInit {
 
 
   private createOverlay() {
-    const arrowSize = 10;
-    const arrowOffset = 10;
+    const arrowSize = 20;
+    const arrowOffset = 5;
     const panelOffset = arrowSize / 2;
 
     const scrollStrategy = this.overlay.scrollStrategies.block();
@@ -134,7 +135,6 @@ export class PopoverDirective implements OnDestroy, OnInit {
         this.vcr
       );
 
-      // const comP = new ComponentPortal(PopoverComponent)
 
       this.overlayRef.attach(periodSelectorPortal);
 
