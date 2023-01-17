@@ -1,36 +1,27 @@
-:host {
+body{
+  background-color: gray;
+}
+
+.cdk-overlay-pane.bottom.center {
+  /* Border */
+  border: 1px solid #d1d5db;
+
+  /* Used to position the arrow */
   position: relative;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
 }
 
-.arrow {
+.cdk-overlay-pane.bottom.center .arrow{
+  height: 0.5rem;
+  width: 0.5rem;
+
+  background-color: #fff;
   position: absolute;
-  background: inherit;
-  z-index: -1;
-}
 
-:host-context(.center) .arrow {
+  bottom: -0.5rem;
   left: 50%;
-}
 
-:host-context(.top.left, .top.center) .arrow {
-  transform-origin: top left;
-  transform: rotate(45deg);
-}
-
-:host-context(.top.right) .arrow {
-  transform-origin: top right;
-  transform: rotate(-45deg);
-}
-
-:host-context(.bottom.left, .bottom.center) .arrow {
-  transform-origin: bottom left;
-  transform: rotate(-45deg);
-}
-
-:host-context(.bottom.right) .arrow {
-  transform-origin: bottom right;
-  transform: rotate(45deg);
+  /* Border */
+  border-bottom: 1px solid #d1d5db;
+  border-right: 1px solid #d1d5db;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
